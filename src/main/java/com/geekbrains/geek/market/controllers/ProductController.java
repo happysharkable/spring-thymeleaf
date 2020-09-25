@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -35,10 +34,19 @@ public class ProductController {
         return "products";
     }
 
+    @PostMapping
+    public String editProduct(@ModelAttribute Product product) {
+        productService.editProduct(product);
+        return "redirect:/products";
+    }
+
     @GetMapping("/{id}")
-    @ResponseBody
-    public Product getOneProductById(@PathVariable Long id) {
-        return productService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product with id: " + id + " doesn't exists"));
+    public String getOneProductById(Model model, @PathVariable Long id) {
+        if (productService.findById(id).isEmpty()) {
+            return "product-not-found";
+        }
+        model.addAttribute("product", productService.findById(id).get());
+        return "product";
     }
 
     @GetMapping("/delete/{id}")

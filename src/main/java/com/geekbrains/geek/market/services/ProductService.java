@@ -30,4 +30,8 @@ public class ProductService {
     public Page<Product> findAll(Specification<Product> spec, int page, int size) {
         return productRepository.findAll(spec, PageRequest.of(page, size));
     }
+
+    public void editProduct(Product product) {
+        productRepository.editProduct(product.getId(), product.getTitle(), product.getPrice());
+    }
 }
