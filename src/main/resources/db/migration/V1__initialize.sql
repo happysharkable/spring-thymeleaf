@@ -43,7 +43,26 @@ values
 ('Bread16', 37),
 ('Bread17', 38),
 ('Bread18', 39),
-('Bread19', 40);
+('Bread19', 40),
+('Bread20', 41),
+('Bread21', 42),
+('Bread22', 43),
+('Bread23', 44),
+('Bread24', 45),
+('Bread25', 46),
+('Bread26', 47),
+('Bread27', 48),
+('Bread28', 49),
+('Bread29', 50),
+('Bread30', 51),
+('Bread31', 52),
+('Bread32', 53),
+('Bread33', 54),
+('Bread34', 55),
+('Bread35', 56),
+('Bread36', 57),
+('Bread37', 58),
+('Bread38', 59);
 
 
 insert into orders (customer_id, product_id, current_price)
